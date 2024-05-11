@@ -1,3 +1,4 @@
+const cors = require("cors");
 const path = require('path')
 const express = require('express')
 const {connectDB} = require('./config/db')
@@ -22,6 +23,10 @@ if(process.env.NODE_ENV === 'production'){
 }else {
     app.get('/',(req,res)=> res.status(200).send('Welcome to support desk'))
 }
+app.use(cors({
+    origin:"https://supportdesk-app-c1ny.onrender.com",
+    methods:["GET","POST","PUT","DELETE"]
+}));
 app.use(errorHandler)
 
 

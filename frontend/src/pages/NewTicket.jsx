@@ -26,6 +26,7 @@ const NewTicket = () => {
     if (isSuccess) {
       navigate("/tickets");
     }
+
     dispatch(reset());
   }, [isError, isSuccess, dispatch, navigate, message]);
 
